@@ -1,6 +1,8 @@
 Feature: Fee Payment
   When a user visits "/", they should see the fee payments start page
 
+  # These tests should all fail if GLiMR is not available
+
   Scenario: User sees start page
     When I visit "/"
     Then I should see "Pay your tax tribunal fees"
@@ -21,9 +23,6 @@ Feature: Fee Payment
     And I should see "Confirmation code can't be blank"
 
   Scenario: User searches for non-existent case
-    When I visit "/"
-    And I click the "Start now" link
-    And I fill in "Case reference" with "TC/2016/00001"
-    And I fill in "Confirmation code" with "XXXYYY"
-    And I click the "Find case" button
+    When I visit "/case_requests"
+    And I search for a case with reference "TC/2016/00001" and confirmation code "XXXYYY"
     Then I should see "We could not find your case"

@@ -22,3 +22,9 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
 end
 
+Given(/^I search for a case with reference "([^"]*)" and confirmation code "([^"]*)"$/) do |tax_tribunal_reference, confirmation_code|
+  step %[I fill in "Case reference" with "#{tax_tribunal_reference}"]
+  step %[I fill in "Confirmation code" with "#{confirmation_code}"]
+  step %[I click the "Find case" button]
+end
+
