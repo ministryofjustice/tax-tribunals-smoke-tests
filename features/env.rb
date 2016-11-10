@@ -7,6 +7,4 @@ Capybara.run_server = false
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
 
-FEE_PAYMENT_URL = 'https://taxtribs-fees-dev.dsd.io'
-
-Capybara.app_host = FEE_PAYMENT_URL
+Capybara.app_host = ENV.fetch('FEE_PAYMENT_URL')

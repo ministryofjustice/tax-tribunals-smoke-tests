@@ -18,9 +18,17 @@ After ensuring that all the pre-requisites are installed, checkout the repositor
 
 ## Configuration
 
+The `env.example` file contains the various environment variables which must be set in order for the
+tests to run. Create a copy of this file, with appropriate values, and then source it before running
+the tests.
+
+    $ source env.example
+
 Edit `features/env.rb` and change `FEE_PAYMENT_URL` to point to your instance of the fee payment application
 
 ## Running
 
 Execute `cucumber` to run all the tests
+
+    $ cucumber
 
