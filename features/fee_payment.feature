@@ -26,3 +26,10 @@ Feature: Fee Payment
     When I visit "/case_requests"
     And I search for a case with reference "TC/2016/00001" and confirmation code "XXXYYY"
     Then I should see "We could not find your case"
+
+  # This test depends on a corresponding case existing in GLiMR
+  Scenario: User searches for case with a fee to pay
+    When I visit "/case_requests"
+    And I search for a case with a fee to pay
+    Then I should see the title of the case with a fee to pay
+    And I should see the payable amount of the case with a fee to pay
