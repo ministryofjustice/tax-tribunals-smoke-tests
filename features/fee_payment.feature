@@ -9,7 +9,8 @@ Feature: Fee Payment
   Scenario: User clicks start button
     When I visit "/"
     And I click the "Start now" link
-    Then I should see "Find your case"
+    Then I should be on "/case_requests"
+    And I should see "Find your case"
 
   Scenario: User searches for nothing
     When I visit "/"

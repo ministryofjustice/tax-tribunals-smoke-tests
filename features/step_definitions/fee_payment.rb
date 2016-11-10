@@ -2,6 +2,10 @@ When(/^I visit "(.*?)"$/) do |path|
   visit path
 end
 
+Then(/^I should be on "([^"]*)"$/) do |page_name|
+  expect("#{Capybara.app_host}#{URI.parse(current_url).path}").to eql("#{Capybara.app_host}#{page_name}")
+end
+
 Then(/^I should see "(.*?)"$/) do |text|
   expect(page).to have_text(text)
 end
