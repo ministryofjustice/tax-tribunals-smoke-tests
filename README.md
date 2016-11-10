@@ -18,7 +18,7 @@ After ensuring that all the pre-requisites are installed, checkout the repositor
 
 ## Configuration
 
-Edit `features/env.rb` and change `Capybara.app_host` to point to your instance of the fee payment application
+Edit `features/env.rb` and change `FEE_PAYMENT_URL` to point to your instance of the fee payment application
 
 ## Running
 
