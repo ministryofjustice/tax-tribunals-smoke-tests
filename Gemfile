@@ -1,6 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "capybara"
-gem "cucumber"
-gem "poltergeist"
-gem "rspec-expectations"
+gem 'capybara'
+gem 'cucumber'
+gem 'poltergeist'
+gem 'pry-byebug'
+gem 'rspec-expectations'
