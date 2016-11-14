@@ -1,9 +1,18 @@
+When /^I dump the response$/ do
+  puts body
+end
+
 When(/^I visit "(.*?)"$/) do |path|
   visit path
 end
-
 Then(/^I should be on "([^"]*)"$/) do |page_name|
   expect("#{Capybara.app_host}#{URI.parse(current_url).path}").to eql("#{Capybara.app_host}#{page_name}")
+end
+
+Then(/^I should see a payment button$/) do
+  link = page.find('a.button')
+  expect(link.text).to eq('Pay now')
+  expect(link[:href]).to match(%r[^#{ENV.fetch('FEE_PAYMENT_URL')}/fees/[a-f0-9-]+/pay$])
 end
 
 Then(/^I should see "(.*?)"$/) do |text|

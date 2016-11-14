@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/dsl'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
+require 'pry-byebug'
 
 Capybara.run_server = false
 Capybara.default_driver = :poltergeist
