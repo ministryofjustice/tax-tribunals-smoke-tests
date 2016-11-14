@@ -24,8 +24,6 @@ the tests.
 
     $ source env.example
 
-Edit `features/env.rb` and change `FEE_PAYMENT_URL` to point to your instance of the fee payment application
-
 ## Running
 
 Execute `cucumber` to run all the tests
