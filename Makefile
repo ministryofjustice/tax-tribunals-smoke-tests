@@ -6,4 +6,4 @@ cucumber:
 	@source env.example; bundle exec cucumber
 
 mechanize:
-	@mechanize-scripts/redirect-to-govuk-pay.rb
+	@source env.example; mechanize-scripts/redirect-to-govuk-pay.rb
