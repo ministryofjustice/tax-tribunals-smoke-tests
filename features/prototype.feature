@@ -1,6 +1,4 @@
-Feature: Start page
-  When a user visits "/end_to_end/task-list", they should see the task list
-
+Feature: Determining the cost of an appeal
   Background:
     Given I authenticate to the prototype
     When I visit "/end_to_end/task-list"
