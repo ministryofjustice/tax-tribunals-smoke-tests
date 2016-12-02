@@ -4,6 +4,7 @@ Feature: Determining the cost of an appeal
     When I authenticate to the prototype
     And I start the appeal process
     Then I should see "Did you challenge the original decision with HMRC?"
+    And I should see "Step 1 of 7"
 
   Scenario: Challenged Yes, Income Tax
     When I choose "Yes"

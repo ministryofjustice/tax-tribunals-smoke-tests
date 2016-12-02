@@ -4,10 +4,12 @@ Feature: Determining the cost of an appeal
     When I authenticate to the prototype
     And I start the appeal process
     Then I should see "Did you challenge the original decision with HMRC?"
+    And I should see "Step 1 of 7"
 
   Scenario Outline: Not challenged HMRC
     When I choose "No"
     And I click the "Continue" button
+    Then I should see "Step 2 of 7"
     And I say my appeal is about "<appeal_about>"
     Then I should see "<next_step>"
     Examples:
@@ -24,6 +26,7 @@ Feature: Determining the cost of an appeal
   Scenario Outline: Challenged HMRC
     When I choose "Yes"
     And I click the "Continue" button
+    Then I should see "Step 2 of 7"
     And I say my appeal is about "<appeal_about>"
     Then I should see "<next_step>"
     Examples:
