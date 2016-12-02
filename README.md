@@ -23,5 +23,7 @@ edit the `Makefile` to reference your copy.
 
 ## Running
 
+These tests take a long time - currently, several minutes - to run.
+
     $ make
 
