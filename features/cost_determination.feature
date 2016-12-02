@@ -7,12 +7,8 @@ Feature: Determining the cost of an appeal
 
   Scenario: Challenged No, Income Tax
     When I choose "No"
-
     And I click the "Continue" button
-
-    Then I should see "What is your appeal about?"
-    When I choose "Income Tax"
-    And I click the "Continue" button
+    And I say my appeal is about "Income Tax"
 
     Then I should see "You must challenge HMRC"
     And I should see "Contact HMRC"
@@ -20,13 +16,8 @@ Feature: Determining the cost of an appeal
 
   Scenario: Challenged Yes, Income Tax
     When I choose "Yes"
-
     And I click the "Continue" button
-
-    # TODO: create a step definition that takes a choice and makes it
-    Then I should see "What is your appeal about?"
-    When I choose "Income Tax"
-    And I click the "Continue" button
+    And I say my appeal is about "Income Tax"
 
     Then I should see "What is your dispute about?"
     When I choose "Penalty or surcharge"

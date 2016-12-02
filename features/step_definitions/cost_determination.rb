@@ -46,3 +46,12 @@ And(/^I complete the cost determination task$/) do
   COST
 end
 
+And(/^I say my appeal is about "([^"]*)"$/) do |appeal_about|
+  many_steps(<<-APPEAL_ABOUT)
+    Then I should see "What is your appeal about?"
+    When I choose "#{appeal_about}"
+    And I click the "Continue" button
+  APPEAL_ABOUT
+end
+
+
