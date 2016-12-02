@@ -1,5 +1,6 @@
 And(/^I start the appeal process$/) do
   many_steps(<<-START)
+    When I visit the task list page
     Then I should see "The tax tribunal is independent of government"
     And I should see "Find out the cost of your appeal"
     And I should see "Check you meet the tribunal deadline"
@@ -36,7 +37,7 @@ And(/^I complete the cost determination task$/) do
     Then I should see "To submit an appeal you will have to pay £20"
 
     When I click the "Continue" link
-    Then I should be on "/end_to_end/task-list"
+    Then I should be on the task list page
 
     When I click the "Start" link
     Then I should see "2. Check you meet tribunal deadlines"

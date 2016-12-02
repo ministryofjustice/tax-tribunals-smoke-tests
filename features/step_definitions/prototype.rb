@@ -1,5 +1,6 @@
 Given(/^I target the prototype$/) do
   Capybara.app_host = ENV.fetch('PROTOTYPE_URL')
+  ENV['TASK_LIST_PAGE'] = "/end_to_end/task-list"
 end
 
 Given(/^I authenticate to the prototype$/) do

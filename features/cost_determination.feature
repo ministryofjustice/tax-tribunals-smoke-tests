@@ -2,7 +2,6 @@ Feature: Determining the cost of an appeal
   Background:
     Given I target the prototype
     When I authenticate to the prototype
-    When I visit "/end_to_end/task-list"
     And I start the appeal process
     Then I should see "Did you challenge the original decision with HMRC?"
 
@@ -24,6 +23,7 @@ Feature: Determining the cost of an appeal
 
     And I click the "Continue" button
 
+    # TODO: create a step definition that takes a choice and makes it
     Then I should see "What is your appeal about?"
     When I choose "Income Tax"
     And I click the "Continue" button
@@ -39,7 +39,7 @@ Feature: Determining the cost of an appeal
     Then I should see "To submit an appeal you will have to pay £20"
 
     When I click the "Continue" link
-    Then I should be on "/end_to_end/task-list"
+    Then I should be on the task list page
 
     When I click the "Start" link
     Then I should see "2. Check you meet tribunal deadlines"
@@ -51,7 +51,7 @@ Feature: Determining the cost of an appeal
     When I choose "Yes, I am in time"
     And I click the "Continue" button
 
-    Then I should be on "/end_to_end/task-list"
+    Then I should be on the task list page
     And I should see "IN TIME"
 
     When I click the "Start" link

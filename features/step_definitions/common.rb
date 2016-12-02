@@ -2,8 +2,16 @@ When /^I dump the response$/ do
   puts body
 end
 
+When(/^I visit the task list page$/) do
+  visit ENV.fetch('TASK_LIST_PAGE')
+end
+
 When(/^I visit "(.*?)"$/) do |path|
   visit path
+end
+
+Then(/^I should be on the task list page$/) do
+  expect("#{Capybara.app_host}#{URI.parse(current_url).path}").to eql("#{Capybara.app_host + ENV.fetch('TASK_LIST_PAGE')}")
 end
 
 Then(/^I should be on "([^"]*)"$/) do |page_name|
