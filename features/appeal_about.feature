@@ -1,4 +1,4 @@
-Feature: Determining the cost of an appeal
+Feature: What is your appeal about?
   Background:
     Given I target the prototype
     When I authenticate to the prototype
