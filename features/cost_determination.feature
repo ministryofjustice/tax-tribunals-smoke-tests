@@ -4,9 +4,9 @@ Feature: Determining the cost of an appeal
     When I authenticate to the prototype
     When I visit "/end_to_end/task-list"
     And I start the appeal process
+    Then I should see "Did you challenge the original decision with HMRC?"
 
   Scenario: Challenged No, Income Tax
-    Then I should see "Did you challenge the original decision with HMRC?"
     When I choose "No"
 
     And I click the "Continue" button
@@ -16,10 +16,10 @@ Feature: Determining the cost of an appeal
     And I click the "Continue" button
 
     Then I should see "You must challenge HMRC"
+    And I should see "Contact HMRC"
 
 
   Scenario: Challenged Yes, Income Tax
-    Then I should see "Did you challenge the original decision with HMRC?"
     When I choose "Yes"
 
     And I click the "Continue" button
