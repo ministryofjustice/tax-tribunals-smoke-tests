@@ -5,14 +5,37 @@ Feature: Determining the cost of an appeal
     And I start the appeal process
     Then I should see "Did you challenge the original decision with HMRC?"
 
-  Scenario: Challenged No, Income Tax
+  Scenario Outline: Not challenged HMRC appeal about step
     When I choose "No"
     And I click the "Continue" button
-    And I say my appeal is about "Income Tax"
+    And I say my appeal is about "<appeal_about>"
+    Then I should see "<next_step>"
+    Examples:
+      | appeal_about              | next_step                                    |
+      | Income Tax                | You must challenge HMRC                      |
+      | Capital Gains Tax         | You must challenge HMRC                      |
+      | Corporation Tax           | You must challenge HMRC                      |
+      | Inaccurate return penalty | To submit an appeal you will have to pay £50 |
+      | Apply to close an enquiry | To submit an appeal you will have to pay £50 |
+      | Information notices       | To submit an appeal you will have to pay £50 |
+      | Value Added Tax           | What is your dispute about?                  |
+      | Other                     | What is your appeal about?                   |
 
-    Then I should see "You must challenge HMRC"
-    And I should see "Contact HMRC"
-
+  Scenario Outline: Challenged HMRC appeal about step
+    When I choose "Yes"
+    And I click the "Continue" button
+    And I say my appeal is about "<appeal_about>"
+    Then I should see "<next_step>"
+    Examples:
+      | appeal_about              | next_step                                    |
+      | Income Tax                | What is your dispute about?                  |
+      | Capital Gains Tax         | What is your dispute about?                  |
+      | Corporation Tax           | What is your dispute about?                  |
+      | Inaccurate return penalty | To submit an appeal you will have to pay £50 |
+      | Apply to close an enquiry | To submit an appeal you will have to pay £50 |
+      | Information notices       | To submit an appeal you will have to pay £50 |
+      | Value Added Tax           | What is your dispute about?                  |
+      | Other                     | What is your appeal about?                   |
 
   Scenario: Challenged Yes, Income Tax
     When I choose "Yes"
