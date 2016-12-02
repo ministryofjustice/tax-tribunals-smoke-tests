@@ -2,7 +2,6 @@ Feature: Determining lateness of an appeal
   Background:
     Given I target the prototype
     When I authenticate to the prototype
-    And I visit the task list page
     And I complete the cost determination task
     Then I should see "Do you think you're in time to appeal to the tax tribunal?"
 
