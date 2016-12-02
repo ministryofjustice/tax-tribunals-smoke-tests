@@ -11,7 +11,7 @@ Feature: Determining the cost of an appeal
     Then I should see "You will need to pay an initial fee of £20, £50 or £200"
     When I click the "Continue" link
 
-  Scenario: Challenge No, Income Tax
+  Scenario: Challenged No, Income Tax
     Then I should see "Did you challenge the original decision with HMRC?"
     When I choose "No"
 
@@ -24,7 +24,7 @@ Feature: Determining the cost of an appeal
     Then I should see "You must challenge HMRC"
 
 
-  Scenario: Challenge Yes, Income Tax
+  Scenario: Challenged Yes, Income Tax
     Then I should see "Did you challenge the original decision with HMRC?"
     When I choose "Yes"
 
