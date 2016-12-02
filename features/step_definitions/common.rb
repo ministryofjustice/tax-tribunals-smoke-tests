@@ -26,3 +26,9 @@ When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
 end
 
+# I couldn't click the radio button using 'choose(text)', so just
+# click the label with matching text - that should have the same
+# effect
+When(/^I choose "([^"]*)"$/) do |text|
+  find('label', text: text).click
+end
