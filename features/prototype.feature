@@ -1,6 +1,7 @@
 Feature: Determining the cost of an appeal
   Background:
-    Given I authenticate to the prototype
+    Given I target the prototype
+    When I authenticate to the prototype
     When I visit "/end_to_end/task-list"
     Then I should see "The tax tribunal is independent of government"
     And I should see "Find out the cost of your appeal"

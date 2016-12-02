@@ -1,3 +1,7 @@
+Given(/^I target the fee payment application$/) do
+  Capybara.app_host = ENV.fetch('FEE_PAYMENT_URL')
+end
+
 When /^I dump the response$/ do
   puts body
 end

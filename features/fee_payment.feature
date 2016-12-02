@@ -1,5 +1,6 @@
 Feature: Fee Payment
-  When a user visits "/", they should see the fee payments start page
+  Background:
+    Given I target the fee payment application
 
   # These tests should all fail if GLiMR is not available
 

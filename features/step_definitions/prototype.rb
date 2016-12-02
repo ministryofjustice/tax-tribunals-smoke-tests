@@ -1,3 +1,6 @@
+Given(/^I target the prototype$/) do
+  Capybara.app_host = ENV.fetch('PROTOTYPE_URL')
+end
 
 Given(/^I authenticate to the prototype$/) do
   username = 'tax-tribs'
