@@ -4,7 +4,6 @@ And(/^I enter individual appellant details$/) do
     When I click the "Start now" link
     Then I should see "Is the appeal for an individual or company?"
     When I choose "Individual"
-    And I click the "Continue" button
     Then I should see "Taxpayer's details"
     When I fill in "Name" with "Andrew Sachs"
     And I fill in "Address" with "Fawlty Towers, 16 Elwood Avenue, Torquay"

@@ -39,4 +39,5 @@ end
 # effect
 When(/^I choose "([^"]*)"$/) do |text|
   find('label', text: text).click
+  click_button("Continue")
 end

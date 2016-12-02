@@ -8,7 +8,6 @@ Feature: What is your appeal about?
 
   Scenario Outline: Not challenged HMRC
     When I choose "No"
-    And I click the "Continue" button
     Then I should see "Step 2 of 7"
     And I say my appeal is about "<appeal_about>"
     Then I should see "<next_step>"
@@ -27,7 +26,6 @@ Feature: What is your appeal about?
   # Remote Gaming Duty. But, the next step is the same
   Scenario Outline: Not challenged HMRC - Other
     When I choose "No"
-    And I click the "Continue" button
     Then I should see "Step 2 of 7"
     And I say my appeal is about "Other"
     Then I should see "What is your appeal about?"
@@ -67,7 +65,6 @@ Feature: What is your appeal about?
 
   Scenario Outline: Challenged HMRC
     When I choose "Yes"
-    And I click the "Continue" button
     Then I should see "Step 2 of 7"
     And I say my appeal is about "<appeal_about>"
     Then I should see "<next_step>"
@@ -86,7 +83,6 @@ Feature: What is your appeal about?
   # Remote Gaming Duty. But, the next step is the same
   Scenario Outline: Challenged HMRC - Other
     When I choose "Yes"
-    And I click the "Continue" button
     Then I should see "Step 2 of 7"
     And I say my appeal is about "Other"
     Then I should see "What is your appeal about?"

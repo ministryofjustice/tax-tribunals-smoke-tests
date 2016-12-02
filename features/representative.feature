@@ -11,16 +11,13 @@ Feature: Representative
 
   Scenario: No representative
     When I choose "No"
-    And I click the "Continue" button
     Then I should see "What outcome do you want from your appeal?"
 
   Scenario: Individual representative
     When I choose "Yes"
-    And I click the "Continue" button
     Then I should see "Step 4 of 16"
     And I should see "Is the representative an individual or company?"
     When I choose "Individual"
-    And I click the "Continue" button
     Then I should see "Representative's details"
     When I fill in "Name" with "Atticus Finch"
     And I fill in "Address" with "5 Ravenscroft St, London E2 7SH"
@@ -31,11 +28,9 @@ Feature: Representative
 
   Scenario: Company representative
     When I choose "Yes"
-    And I click the "Continue" button
     Then I should see "Step 4 of 16"
     And I should see "Is the representative an individual or company?"
     When I choose "Company"
-    And I click the "Continue" button
     Then I should see "Representative's details"
     When I fill in "Company name" with "Atticus Finch"
     And I fill in "Address" with "5 Ravenscroft St, London E2 7SH"

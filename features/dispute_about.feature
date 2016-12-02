@@ -6,7 +6,6 @@ Feature: What is your dispute about?
     Then I should see "Did you challenge the original decision with HMRC?"
     And I should see "Step 1 of 7"
     When I choose "Yes"
-    And I click the "Continue" button
     Then I should see "Step 2 of 7"
     And I say my appeal is about "Income Tax"
     Then I should see "Step 3 of 7"
@@ -14,7 +13,6 @@ Feature: What is your dispute about?
 
   Scenario Outline: Dispute choices
     When I choose "<dispute_about>"
-    And I click the "Continue" button
     Then I should see "<next_step>"
     Examples:
       | dispute_about        | next_step                                     |

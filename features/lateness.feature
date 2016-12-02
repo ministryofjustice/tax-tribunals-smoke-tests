@@ -7,14 +7,12 @@ Feature: Determining lateness of an appeal
 
   Scenario: In time
     When I choose "Yes, I am in time"
-    And I click the "Continue" button
 
     Then I should be on the task list page
     And I should see "IN TIME"
 
   Scenario: Late
     When I choose "No, I am late"
-    And I click the "Continue" button
 
     Then I should see "Why are you late with your appeal?"
 
@@ -25,7 +23,6 @@ Feature: Determining lateness of an appeal
 
   Scenario: Not sure
     When I choose "I'm not sure"
-    And I click the "Continue" button
 
     Then I should see "Why are you late with your appeal?"
 

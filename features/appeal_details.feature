@@ -11,7 +11,6 @@ Feature: Appeal details
 
   Scenario: Individual
     When I choose "Individual"
-    And I click the "Continue" button
     Then I should see "Taxpayer's details"
     When I fill in "Name" with "Andrew Sachs"
     And I fill in "Address" with "Fawlty Towers\n16 Elwood Avenue\nTorquay"
@@ -22,7 +21,6 @@ Feature: Appeal details
 
   Scenario: Company
     When I choose "Company"
-    And I click the "Continue" button
     Then I should see "Taxpayer's details"
     When I fill in "Company name" with "Fawlty Towers"
     And I fill in "Address" with "16 Elwood Avenue\nTorquay"

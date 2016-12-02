@@ -20,19 +20,14 @@ And(/^I complete the cost determination task$/) do
     Then I should see "Did you challenge the original decision with HMRC?"
     When I choose "Yes"
 
-    And I click the "Continue" button
-
     Then I should see "What is your appeal about?"
     When I choose "Income Tax"
-    And I click the "Continue" button
 
     Then I should see "What is your dispute about?"
     When I choose "Penalty or surcharge"
-    And I click the "Continue" button
 
     Then I should see "What is the penalty or surcharge amount?"
     When I choose "£100 or less"
-    And I click the "Continue" button
 
     Then I should see "To submit an appeal you will have to pay £20"
 
@@ -50,7 +45,6 @@ And(/^I say my appeal is about "([^"]*)"$/) do |appeal_about|
   many_steps(<<-APPEAL_ABOUT)
     Then I should see "What is your appeal about?"
     When I choose "#{appeal_about}"
-    And I click the "Continue" button
   APPEAL_ABOUT
 end
 

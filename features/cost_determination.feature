@@ -8,16 +8,13 @@ Feature: Determining the cost of an appeal
 
   Scenario: Challenged Yes, Income Tax
     When I choose "Yes"
-    And I click the "Continue" button
     And I say my appeal is about "Income Tax"
 
     Then I should see "What is your dispute about?"
     When I choose "Penalty or surcharge"
-    And I click the "Continue" button
 
     Then I should see "What is the penalty or surcharge amount?"
     When I choose "£100 or less"
-    And I click the "Continue" button
 
     Then I should see "To submit an appeal you will have to pay £20"
 
@@ -32,7 +29,6 @@ Feature: Determining the cost of an appeal
     Then I should see "Do you think you're in time to appeal to the tax tribunal?"
 
     When I choose "Yes, I am in time"
-    And I click the "Continue" button
 
     Then I should be on the task list page
     And I should see "IN TIME"
@@ -44,5 +40,4 @@ Feature: Determining the cost of an appeal
     Then I should see "Is the appeal for an individual or company?"
 
     When I choose "Individual"
-    And I click the "Continue" button
     Then I should see "Taxpayer's details"
