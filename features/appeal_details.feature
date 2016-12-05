@@ -1,7 +1,6 @@
 Feature: Appeal details
   Background:
-    Given I target the prototype
-    When I authenticate to the prototype
+    Given I start
     And I complete the cost determination task
     And I complete the lateness task
     Then I should see "3. Enter appeal details and pay fee"

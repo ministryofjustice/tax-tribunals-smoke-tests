@@ -1,7 +1,6 @@
 Feature: What is your appeal about?
   Background:
-    Given I target the prototype
-    When I authenticate to the prototype
+    Given I start
     And I start the appeal process
     Then I should see "Did you challenge the original decision with HMRC?"
     And I should see "Step 1 of 7"

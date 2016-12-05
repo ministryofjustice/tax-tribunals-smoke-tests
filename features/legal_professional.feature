@@ -1,7 +1,6 @@
 Feature: Authorising a representative
   Background:
-    Given I target the prototype
-    When I authenticate to the prototype
+    Given I start
     And I complete the cost determination task
     And I complete the lateness task
     When I enter individual appellant details
