@@ -19,7 +19,7 @@ def main
     test_payment_form payment_page
   end
 
-  puts "Passed."
+  puts_green "    Passed."
 end
 
 def search_for_case(page, case_reference, confirmation_code)
@@ -46,6 +46,14 @@ end
 def set_field(f, field_name, value)
   field = f.fields.find {|fld| fld.name == field_name}
   field.value = value
+end
+
+def puts_red(string)
+  puts "\033[0;31m#{string}\033[0m"
+end
+
+def puts_green(string)
+  puts "\033[0;32m#{string}\033[0m"
 end
 
 main
