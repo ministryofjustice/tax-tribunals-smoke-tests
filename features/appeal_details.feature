@@ -4,7 +4,6 @@ Feature: Appeal details
     When I authenticate to the prototype
     And I complete the cost determination task
     And I complete the lateness task
-    And I click the "Start" link
     Then I should see "3. Enter appeal details and pay fee"
     When I click the "Start now" link
     Then I should see "Is the appeal for an individual or company?"

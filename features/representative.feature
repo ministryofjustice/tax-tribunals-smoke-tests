@@ -4,7 +4,6 @@ Feature: Representative
     When I authenticate to the prototype
     And I complete the cost determination task
     And I complete the lateness task
-    And I click the "Start" link
     When I enter individual appellant details
     Then I should see "Is a representative acting for you?"
     And I should see "Step 3 of 16"
