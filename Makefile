@@ -8,11 +8,14 @@ cucumber:
 mechanize:
 	@source env.example; mechanize-scripts/redirect-to-govuk-pay.rb
 
-build:
+docker-build:
 	docker build -t smoke-tests .
 
-run:
-	docker run --rm -v $$(pwd):/usr/src/app \
+# make run - run all the features
+# make run FILE=features/cost_determination.feature - run a single feature file
+# make run FILE=features/cost_determination.feature:17 - run a single scenario
+docker-run:
+	@docker run --rm -it -v $$(pwd):/usr/src/app \
 		-e PROTOTYPE_URL=https://moj-taxtribs-prototype.herokuapp.com \
 		-e FEE_PAYMENT_URL=https://taxtribs-fees-dev.dsd.io \
 		-e PROTOTYPE_URL=https://moj-taxtribs-prototype.herokuapp.com \
@@ -20,6 +23,6 @@ run:
 		-e CASE_WITH_FEE_CONF_CODE=RRCYHJ \
 		-e CASE_WITH_FEE_TITLE="Mann and Sons" \
 		-e CASE_WITH_FEE_AMOUNT="£200" \
-	 	smoke-tests \
-		cucumber features/cost_determination.feature
+	 	digitalronin/cucumber-runner \
+		cucumber $${FILE}
 
