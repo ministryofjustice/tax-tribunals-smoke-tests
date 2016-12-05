@@ -37,7 +37,13 @@ end
 # I couldn't click the radio button using 'choose(text)', so just
 # click the label with matching text - that should have the same
 # effect
-When(/^I choose "([^"]*)"$/) do |text|
+When(/^I click the radio button "([^"]*)"$/) do |text|
   find('label', text: text).click
+end
+
+When(/^I choose "([^"]*)"$/) do |text|
+  step %[I click the radio button "#{text}"]
   click_button("Continue")
 end
+
+
