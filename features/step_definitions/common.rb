@@ -2,14 +2,14 @@
 # testing a local/dev/staging version of the real system
 Given(/^I start$/) do
 
-  # many_steps(<<-START)
-  #   Given I target the prototype
-  #   When I authenticate to the prototype
-  # START
-
   many_steps(<<-START)
-    Given I target the prototype on localhost
+    Given I target the prototype
+    When I authenticate to the prototype
   START
+
+  # many_steps(<<-START)
+  #   Given I target the prototype on localhost
+  # START
 
 end
 
