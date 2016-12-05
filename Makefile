@@ -9,7 +9,7 @@ mechanize:
 	@source env.example; mechanize-scripts/redirect-to-govuk-pay.rb
 
 docker-build:
-	docker build -t smoke-tests .
+	docker build -t digitalronin/cucumber-runner .
 
 # make run - run all the features
 # make run FILE=features/cost_determination.feature - run a single feature file
