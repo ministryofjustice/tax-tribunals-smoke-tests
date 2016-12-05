@@ -3,6 +3,11 @@ Given(/^I target the prototype$/) do
   ENV['TASK_LIST_PAGE'] = "/end_to_end/task-list"
 end
 
+Given(/^I target the prototype on localhost$/) do
+  Capybara.app_host = 'http://localhost:3001'
+  ENV['TASK_LIST_PAGE'] = "/end_to_end/task-list"
+end
+
 Given(/^I authenticate to the prototype$/) do
   username = 'tax-tribs'
   password = 'd4sh1ngR4cc00n'

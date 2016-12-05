@@ -1,10 +1,16 @@
 # Change this step to switch between testing the prototype or
 # testing a local/dev/staging version of the real system
 Given(/^I start$/) do
+
+  # many_steps(<<-START)
+  #   Given I target the prototype
+  #   When I authenticate to the prototype
+  # START
+
   many_steps(<<-START)
-    Given I target the prototype
-    When I authenticate to the prototype
+    Given I target the prototype on localhost
   START
+
 end
 
 When /^I dump the response$/ do
