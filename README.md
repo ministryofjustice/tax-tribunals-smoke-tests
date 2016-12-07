@@ -3,6 +3,8 @@
 Some tests which will confirm that the various components of the Tax Tribunals service
 are inter-operating correctly.
 
+*NB: These smoke tests are intended for testing a development instance of the service. They should NEVER be run against the live service*
+
 ## Pre-requisites
 
 * Xcode (required to install phantomjs)
