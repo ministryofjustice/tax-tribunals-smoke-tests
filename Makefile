@@ -1,9 +1,12 @@
-default:
+test:
 	@make cucumber
 	@make mechanize
 
+test-fees:
+	@source env.example; bundle exec cucumber features/fee_payment.feature
+
 cucumber:
-	@source env.example; bundle exec cucumber
+	@source env.example; bundle exec cucumber --fail-fast
 
 mechanize:
 	@source env.example; mechanize-scripts/redirect-to-govuk-pay.rb
