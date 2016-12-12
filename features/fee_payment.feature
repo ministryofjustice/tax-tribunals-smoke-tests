@@ -14,8 +14,7 @@ Feature: Fee Payment
     And I should see "Find your case"
 
     When I click the "Find case" button
-    Then I should see "We could not find your case"
-    And I should see "Case reference can't be blank"
+    Then I should see "Case reference can't be blank"
     And I should see "Confirmation code can't be blank"
 
   Scenario: User searches for non-existent case
@@ -30,7 +29,7 @@ Feature: Fee Payment
     And I search for a case with a fee to pay
     Then I should see the title of the case with a fee to pay
     And I should see the payable amount of the case with a fee to pay
-    And I should see a payment button
+    And I should see "Debit or credit card"
 
   # It would be good to check that we are redirected to gov.uk pay if we click 'pay now', but
   # I can't get Capybara to test an external redirect
