@@ -1,24 +1,13 @@
-# Change this step to switch between testing the prototype or
-# testing a local/dev/staging version of the real system
 Given(/^I start$/) do
-
-  many_steps(<<-START)
-    Given I target the prototype
-    When I authenticate to the prototype
-  START
-
-  # many_steps(<<-START)
-  #   Given I target the prototype on localhost
-  # START
-
+  Capybara.app_host = ENV.fetch('DATACAPTURE_URI')
 end
 
 When /^I dump the response$/ do
   puts body
 end
 
-When(/^I visit the task list page$/) do
-  visit ENV.fetch('TASK_LIST_PAGE')
+When(/^I visit the home page$/) do
+  visit '/'
 end
 
 When(/^I visit "(.*?)"$/) do |path|

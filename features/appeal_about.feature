@@ -1,121 +1,61 @@
 Feature: What is your appeal about?
   Background:
     Given I start
-    And I start the appeal process
-    Then I should see "Did you challenge the original decision with HMRC?"
-    And I should see "Step 1 of 7"
-
-  Scenario Outline: Not challenged HMRC
-    When I choose "No"
-    Then I should see "Step 2 of 7"
-    And I say my appeal is about "<appeal_about>"
-    Then I should see "<next_step>"
-    Examples:
-      | appeal_about              | next_step                                    |
-      | Income Tax                | You must challenge HMRC                      |
-      | Capital Gains Tax         | You must challenge HMRC                      |
-      | Corporation Tax           | You must challenge HMRC                      |
-      | Inaccurate return penalty | To submit an appeal you will have to pay £50 |
-      | Apply to close an enquiry | To submit an appeal you will have to pay £50 |
-      | Information notices       | To submit an appeal you will have to pay £50 |
-      | Value Added Tax           | What is your dispute about?                  |
-      | Other                     | What is your appeal about?                   |
-
-  # NB: 'Gaming Duty' is missing from this scenario, because it's a substring of
-  # Remote Gaming Duty. But, the next step is the same
-  Scenario Outline: Not challenged HMRC - Other
-    When I choose "No"
-    Then I should see "Step 2 of 7"
-    And I say my appeal is about "Other"
+    When I start the appeal process
     Then I should see "What is your appeal about?"
-    And I say my appeal is about "<appeal_about>"
-    Then I should see "<next_step>"
-    Examples:
-      | appeal_about                         | next_step                                                |
-      | Construction Industry Scheme         | You must challenge HMRC                                  |
-      | Inheritance Tax                      | You must challenge HMRC                                  |
-      | National Insurance                   | You must challenge HMRC                                  |
-      | Petroleum Revenue Tax                | You must challenge HMRC                                  |
-      | Stamp duties                         | You must challenge HMRC                                  |
-      | Statutory payments                   | You must challenge HMRC                                  |
-      | Student loans                        | You must challenge HMRC                                  |
-      | Accelerated Payment Notice           | What is your dispute about?                              |
-      | Aggregates Levy                      | What is your dispute about?                              |
-      | Air Passenger Duty                   | What is your dispute about?                              |
-      | Alcoholic Liquor Duties              | What is your dispute about?                              |
-      | Bingo Duty                           | What is your dispute about?                              |
-      | Climate Change Levy                  | What is your dispute about?                              |
-      | Customs Duty                         | What is your dispute about?                              |
-      | Disclosure Of Tax Avoidance Schemes  | What is your dispute about?                              |
-      | Export (Penalty) Regulations         | What is your dispute about?                              |
-      | General Betting Duty                 | What is your dispute about?                              |
-      | Insurance Premium Tax                | What is your dispute about?                              |
-      | Landfill Tax                         | What is your dispute about?                              |
-      | Lottery Duty                         | What is your dispute about?                              |
-      | Pool Betting Duty                    | What is your dispute about?                              |
-      | Remote Gaming Duty                   | What is your dispute about?                              |
-      | Tobacco Products Duty                | What is your dispute about?                              |
-      | Counter-terrorism decision           | To submit an appeal you will have to pay £200            |
-      | Hydrocarbon Oil Duties               | To submit an appeal you will have to pay £200            |
-      | My dispute is not listed             | To submit an appeal you will have to pay £200            |
-      | Request permission for a late review | To submit an appeal you will have to pay £50             |
-      | Restoration case                     | To submit an appeal you will have to pay £200            |
-      | Money laundering decisions           | Have you paid the amount of tax involved in the dispute? |
 
-  Scenario Outline: Challenged HMRC
-    When I choose "Yes"
-    Then I should see "Step 2 of 7"
-    And I say my appeal is about "<appeal_about>"
-    Then I should see "<next_step>"
-    Examples:
-      | appeal_about              | next_step                                    |
-      | Income Tax                | What is your dispute about?                  |
-      | Capital Gains Tax         | What is your dispute about?                  |
-      | Corporation Tax           | What is your dispute about?                  |
-      | Inaccurate return penalty | To submit an appeal you will have to pay £50 |
-      | Apply to close an enquiry | To submit an appeal you will have to pay £50 |
-      | Information notices       | To submit an appeal you will have to pay £50 |
-      | Value Added Tax           | What is your dispute about?                  |
-      | Other                     | What is your appeal about?                   |
+  @happy_path
+  Scenario: Individual Income Tax Happy Path
+    Given I choose "Income Tax"
+    Then I should see "Did you appeal the original decision with HMRC?"
+    And I choose "Yes"
+    Given I choose "I have a review conclusion letter"
+    Then I should see "What is your dispute about?"
+    Given I choose "Penalty or surcharge"
+    Then I should see "How much is the penalty or surcharge you are disputing?"
+    Given I choose "£100 or less"
+    Then I should see "Do you think you're in time to appeal to the tax tribunal?"
+    Given I choose "Yes, I am in time"
+    Then I should see "Are you the taxpayer making the appeal?"
+    Given I choose "Yes"
+    Then I should see "Who is making the appeal?"
+    Given I choose "Individual"
+    Then I should see "Enter taxpayer's details"
+    When I fill in "First name" with "Andrew"
+    And I fill in "Last name" with "Sachs"
+    And I fill in "Address" with "Fawlty Towers\n16 Elwood Avenue\nTorquay"
+    And I fill in "Postcode" with "W1A 1AA"
+    And I fill in "Email address" with "manuel@fawlty-towers.co.uk"
+    And I click the "Continue" button
+    Then I should see "Do you have someone to represent you?"
+    Given I choose "No"
+    Then I should see "Grounds for appeal"
+    And I attach a file explaining my grounds
+    And I click the "Continue" button
+    And I click the "Back" link
+    Then I should see "smoketest.docx"
+    And I click the "Remove" button
+    And I attach a file explaining my grounds
+    And I click the "Continue" button
+    Then I should see "What outcome do you want from your appeal?"
+    And I fill in "Outcome" with "Drive my enemies before me, hear the laments of their women"
+    And I click the "Continue" button
+    Then I should see "Upload your letter(s)"
+    And I check "Original notice letter"
+    And I check "Review conclusion letter"
 
-  # NB: 'Gaming Duty' is missing from this scenario, because it's a substring of
-  # Remote Gaming Duty. But, the next step is the same
-  Scenario Outline: Challenged HMRC - Other
-    When I choose "Yes"
-    Then I should see "Step 2 of 7"
-    And I say my appeal is about "Other"
-    Then I should see "What is your appeal about?"
-    And I say my appeal is about "<appeal_about>"
-    Then I should see "<next_step>"
-    Examples:
-      | appeal_about                         | next_step                                                |
-      | Accelerated Payment Notice           | What is your dispute about?                              |
-      | Aggregates Levy                      | What is your dispute about?                              |
-      | Air Passenger Duty                   | What is your dispute about?                              |
-      | Alcoholic Liquor Duties              | What is your dispute about?                              |
-      | Bingo Duty                           | What is your dispute about?                              |
-      | Climate Change Levy                  | What is your dispute about?                              |
-      | Construction Industry Scheme         | What is your dispute about?                              |
-      | Customs Duty                         | What is your dispute about?                              |
-      | Disclosure Of Tax Avoidance Schemes  | What is your dispute about?                              |
-      | Export (Penalty) Regulations         | What is your dispute about?                              |
-      | General Betting Duty                 | What is your dispute about?                              |
-      | Inheritance Tax                      | What is your dispute about?                              |
-      | Insurance Premium Tax                | What is your dispute about?                              |
-      | Landfill Tax                         | What is your dispute about?                              |
-      | Lottery Duty                         | What is your dispute about?                              |
-      | National Insurance                   | What is your dispute about?                              |
-      | Petroleum Revenue Tax                | What is your dispute about?                              |
-      | Pool Betting Duty                    | What is your dispute about?                              |
-      | Remote Gaming Duty                   | What is your dispute about?                              |
-      | Stamp duties                         | What is your dispute about?                              |
-      | Statutory payments                   | What is your dispute about?                              |
-      | Student loans                        | What is your dispute about?                              |
-      | Tobacco Products Duty                | What is your dispute about?                              |
-      | Counter-terrorism decision           | To submit an appeal you will have to pay £200            |
-      | Hydrocarbon Oil Duties               | To submit an appeal you will have to pay £200            |
-      | My dispute is not listed             | To submit an appeal you will have to pay £200            |
-      | Request permission for a late review | To submit an appeal you will have to pay £50             |
-      | Restoration case                     | To submit an appeal you will have to pay £200            |
-      | Money laundering decisions           | Have you paid the amount of tax involved in the dispute? |
+
+  #Scenario Outline: Not challenged HMRC
+    #Given I choose "<appeal_about>"
+    #And I choose "No"
+    #Then I should see "<next_step>"
+    #Examples:
+      #| appeal_about              | next_step                                    |
+      #| Capital Gains Tax         | You must appeal the original decision with HMRC |
+      #| Corporation Tax           | You must appeal the original decision with HMRC |
+      #| Income Tax                | You must appeal the original decision with HMRC |
+      #| Information notice        | What is your dispute about?                  |
+      #| Value Added Tax (VAT)     | What is your dispute about?                  |
+      #| Other type of tax, appeal or application | What is your appeal about?                   |
+      #| Inaccurate return penalty | How much is the penalty or surcharge you are disputing? |
 
